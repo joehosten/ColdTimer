@@ -1,0 +1,8 @@
+name: ColdTimer
+version: '${project.version}'
+main: me.hypews.coldtimer.ColdTimer
+api-version: 1.17
+prefix: ColdTimer
+authors: [ hypews ]
+description: Gives freeze effects to players
+website: https://joehosten.me
