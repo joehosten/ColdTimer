@@ -23,7 +23,7 @@ public class CommandCt extends Command {
     public void onCommand(CommandSender sender, String[] args) {
         Player target = Bukkit.getPlayer(args[0]);
         if (target == null) {
-            sender.sendMessage(ChatColor.RED + "That player is not online or does not exist.");
+            sender.sendMessage(ChatColor.RED + "That player is not online or does not exist");
             return;
         }
         Member member = memberManager.getPlayer(target.getUniqueId());
