@@ -22,12 +22,11 @@ public class CommandCt extends Command {
     @Override
     public void onCommand(CommandSender sender, String[] args) {
         Player target = Bukkit.getPlayer(args[0]);
-        Member member = null;
         if (target == null) {
             sender.sendMessage(ChatColor.RED + "That player is not online.");
             return;
         }
-        member = memberManager.getPlayer(target.getUniqueId());
+        Member member = memberManager.getPlayer(target.getUniqueId());
         member.setFrozen(true);
     }
 }
