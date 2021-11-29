@@ -3,9 +3,7 @@ package me.hypews.coldtimer.core.managers;
 import lombok.Data;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
-import org.bukkit.entity.Player;
 
-import java.util.Optional;
 import java.util.UUID;
 
 @Data

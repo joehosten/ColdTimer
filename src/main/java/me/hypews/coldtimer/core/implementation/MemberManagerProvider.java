@@ -1,7 +1,7 @@
 package me.hypews.coldtimer.core.implementation;
 
-import me.hypews.coldtimer.core.managers.Member;
 import me.hypews.coldtimer.api.MemberManager;
+import me.hypews.coldtimer.core.managers.Member;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
 
