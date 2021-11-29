@@ -9,6 +9,10 @@ public abstract class API {
     @Setter
     private static API instance;
 
+    public API() {
+        setInstance(this);
+    }
+
     public abstract MemberManager getMemberManager();
 
 

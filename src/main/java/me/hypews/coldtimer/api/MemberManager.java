@@ -3,6 +3,8 @@ package me.hypews.coldtimer.api;
 import me.hypews.coldtimer.core.managers.Member;
 import org.bukkit.World;
 
+import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 public interface MemberManager {
@@ -17,17 +19,18 @@ public interface MemberManager {
      * @param uuid uuid of player
      * @return If the player has been set to frozen in the config
      */
-    boolean isFrozenToggled(UUID uuid);
+    Optional<Member> isFrozenToggled(UUID uuid);
 
-    /**
-     * @param uuid uuid of player
-     */
-    void setFrozen(UUID uuid);
 
     /**
      * @param uuid uuid of player
      * @return The dimension the player is in
      */
-    World.Environment getDemension(UUID uuid);
+    World.Environment getDimension(UUID uuid);
 
+    void load(UUID uuid);
+
+    void unload(UUID uuid);
+
+    List getMembers();
 }
