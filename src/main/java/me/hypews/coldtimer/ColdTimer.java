@@ -3,10 +3,15 @@ package me.hypews.coldtimer;
 import dev.negativekb.api.plugin.BasePlugin;
 import lombok.Getter;
 import lombok.Setter;
+import me.hypews.coldtimer.api.API;
 import me.hypews.coldtimer.api.APIProvider;
+import me.hypews.coldtimer.api.MemberManager;
 import me.hypews.coldtimer.commands.CommandCt;
 import me.hypews.coldtimer.core.Locale;
 import me.hypews.coldtimer.core.runnable.FreezeCheckRunnable;
+
+import java.util.List;
+import java.util.UUID;
 
 public final class ColdTimer extends BasePlugin {
 
@@ -24,7 +29,7 @@ public final class ColdTimer extends BasePlugin {
         registerCommands(new CommandCt());
 
         // Loads configs
-        loadFiles(this, "settings.yml", "data.yml");
+        saveDefaultConfig();
         Locale.init(this);
 
         // Metrics
@@ -33,10 +38,18 @@ public final class ColdTimer extends BasePlugin {
 
         // Runnable
         new FreezeCheckRunnable().runTaskTimerAsynchronously(this, 0, 0);
+        cachePlayers();
     }
 
     @Override
     public void onDisable() {
         // Plugin shutdown logic
+    }
+
+    private void cachePlayers() {
+        MemberManager memberManager = API.getInstance().getMemberManager();
+        List<String> members = getConfig().getStringList("toggled");
+        if (members.isEmpty()) return;
+        members.forEach(member -> memberManager.load(UUID.fromString(member)));
     }
 }
