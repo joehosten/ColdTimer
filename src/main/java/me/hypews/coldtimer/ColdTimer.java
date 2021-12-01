@@ -9,6 +9,7 @@ import me.hypews.coldtimer.api.MemberManager;
 import me.hypews.coldtimer.commands.CommandCt;
 import me.hypews.coldtimer.core.Locale;
 import me.hypews.coldtimer.core.runnable.FreezeCheckRunnable;
+import me.hypews.coldtimer.listeners.DimensionChangeEvent;
 
 import java.util.List;
 import java.util.UUID;
@@ -37,8 +38,10 @@ public final class ColdTimer extends BasePlugin {
         new Metrics(this, pluginId);
 
         // Runnable
-        new FreezeCheckRunnable().runTaskTimerAsynchronously(this, 0, 0);
+        new FreezeCheckRunnable().runTaskTimerAsynchronously(this, 20, 0);
         cachePlayers();
+
+        registerListeners(new DimensionChangeEvent());
     }
 
     @Override

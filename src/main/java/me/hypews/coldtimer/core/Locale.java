@@ -18,7 +18,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public enum Locale {
 
-    FREEZE_EFFECT_TOGGLED("FREEZE-EFFECT-TOGGLED", Collections.singletonList("&aYou toggled &e%1&a's freeze &r%2")),
+    FREEZE_EFFECT_TOGGLED("FREEZE-EFFECT-TOGGLED", Collections.singletonList("&aYou toggled &e%1&a's freeze mode")),
     NO_PLAYER("NO-PLAYER", Collections.singletonList(
             "&cThat player is not online or does not exist!"
     ));
