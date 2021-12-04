@@ -1,11 +1,9 @@
 package me.hypews.coldtimer.core.runnable;
 
-import me.hypews.coldtimer.ColdTimer;
 import me.hypews.coldtimer.api.API;
 import me.hypews.coldtimer.api.MemberManager;
 import me.hypews.coldtimer.core.managers.Member;
 import org.bukkit.Bukkit;
-import org.bukkit.World.Environment;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 
@@ -32,7 +30,7 @@ public class FreezeCheckRunnable extends BukkitRunnable {
             Optional<Player> p = Optional.ofNullable(Bukkit.getPlayer(member.getUuid()));
             if (!p.isPresent() || !members.contains(member)) return;
 //            if (memberManager.getDimension(p.get().getUniqueId()) == Environment.NORMAL) {
-                p.get().setFreezeTicks(p.get().getMaxFreezeTicks());
+            p.get().setFreezeTicks(p.get().getMaxFreezeTicks());
 //            }
         });
     }

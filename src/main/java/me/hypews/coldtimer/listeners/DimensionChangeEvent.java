@@ -17,8 +17,8 @@ public class DimensionChangeEvent implements Listener {
 
     private final List<Member> members;
     private final MemberManager memberManager;
-    private ArrayList<String> inNetherWithToggle;
     private final int waitTime;
+    private ArrayList<String> inNetherWithToggle;
 
     public DimensionChangeEvent() {
         this.memberManager = API.getInstance().getMemberManager();
@@ -34,7 +34,7 @@ public class DimensionChangeEvent implements Listener {
         Member member = new Member(e.getPlayer().getUniqueId());
         member.setName(e.getPlayer().getName());
         if (fromEnv == World.Environment.NORMAL && (toEnv == World.Environment.NETHER || toEnv == World.Environment.THE_END)) {
-            if(!members.contains(member)) return;
+            if (!members.contains(member)) return;
             memberManager.unload(e.getPlayer().getUniqueId());
             inNetherWithToggle.add(e.getPlayer().getUniqueId().toString());
         } else if ((fromEnv == World.Environment.THE_END || fromEnv == World.Environment.NETHER) && toEnv == World.Environment.NORMAL && inNetherWithToggle.contains(e.getPlayer().getUniqueId().toString())) {
