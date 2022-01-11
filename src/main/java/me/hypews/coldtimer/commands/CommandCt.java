@@ -39,6 +39,7 @@ public class CommandCt extends Command {
         if (args.length == 1) {
             assert target != null;
             toggle(target.getUniqueId().toString(), sender);
+            return;
         }
         switch (args[1].toLowerCase()) {
             case "on":

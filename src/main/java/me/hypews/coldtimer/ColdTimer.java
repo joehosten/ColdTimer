@@ -30,6 +30,7 @@ public final class ColdTimer extends BasePlugin {
         registerCommands(new CommandCt());
 
         // Loads configs
+        getConfig().options().copyDefaults(true);
         saveDefaultConfig();
         Locale.init(this);
 
