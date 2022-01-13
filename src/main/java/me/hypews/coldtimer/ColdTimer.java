@@ -42,6 +42,7 @@ public final class ColdTimer extends BasePlugin {
         new FreezeCheckRunnable().runTaskTimerAsynchronously(this, 20, 0);
         cachePlayers();
 
+
         registerListeners(new DimensionChangeEvent());
     }
 
